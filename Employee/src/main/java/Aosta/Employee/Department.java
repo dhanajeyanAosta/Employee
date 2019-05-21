@@ -2,18 +2,24 @@ package Aosta.Employee;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Department {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer iMast_Department_id;
 	private String cDepartment;
 	private Integer bActive;
 	
+	public Department() {
+		
+	}
 	
-	protected Department(Integer iMast_Department_id, String cDepartment, Integer bActive) {
+	public Department(Integer iMast_Department_id, String cDepartment, Integer bActive) {
 		super();
 		this.iMast_Department_id = iMast_Department_id;
 		this.cDepartment = cDepartment;

@@ -17,13 +17,13 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	
-	@RequestMapping("/employees")
+	@RequestMapping(method = RequestMethod.GET,value ="/employees")
 	public List<Employee> getAllEmployee()
 	{
 		return employeeService.getAllEmployees();
 	}
 	
-	@RequestMapping("/employees/{id}")
+	@RequestMapping(method = RequestMethod.GET,value ="/employees/{id}")
 	public Employee getAllEmployee(@PathVariable String id)
 	{
 		return employeeService.getEmployee(id);
