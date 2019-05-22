@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 @Service
 public class StudentService {
 
@@ -18,13 +20,13 @@ public class StudentService {
 		return student;
 	}
 	
-	public Student getStudent(long id) {
-		return studentRepository.findById(id);
+	public Student getStudent(long Id) {
+		return studentRepository.findByStudentId(Id);
 	}
 	
 	public List<Student> findByAgeLessThanEqual(long age) {
 		List<Student> student=new ArrayList<>();
-		studentRepository.findByAgeLessThanEqual(age).forEach(student::add);
+		studentRepository.findByAgeLessThanEqual(age).stream().forEach(student::add);
 		return student;
 	}
 	
