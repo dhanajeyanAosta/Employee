@@ -3,6 +3,7 @@ package Aosta.Employee;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -18,8 +19,13 @@ public class EmployeeApplication {
 	}
 	
 	@Bean
-	   public Docket EmployeeApi() {
-	      return new Docket(DocumentationType.SWAGGER_2).select()
-	         .apis(RequestHandlerSelectors.basePackage("Aosta.Employee")).build();
-	   }
+	public Docket EmployeeApi() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("Aosta.Employee")).build();
+	}
+	
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
 }
